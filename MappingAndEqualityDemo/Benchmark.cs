@@ -1,20 +1,9 @@
 ﻿using AutoMapper;
 using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Columns;
-using BenchmarkDotNet.Configs;
-using BenchmarkDotNet.Jobs;
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Runtime.ConstrainedExecution;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bnaya.Samples;
 
-public class Benchmark: BenchmarkBase
+public class Benchmark : BenchmarkBase
 {
     private IMapper? _mapper;
     private static readonly Person _person = Person.Default;

@@ -5,15 +5,15 @@ namespace Bnaya.Samples;
 // see https://github.com/diegofrata/Generator.Equals
 
 [Equatable]
-public readonly partial record struct Person(
-    int Id,
-    string Name,
-    DateTimeOffset DateOfBirth)
+public partial class Fellow
 {
-    #region public static Person Default { get;  } = ...
+    #region public static Fellow Default { get;  } = ...
 
-    public static Person Default { get; } = new Person(10, "Marry", DateTimeOffset.UtcNow.AddYears(-50))
-    {
+    public static Fellow Default { get; } = new Fellow
+    { 
+        Id = 10,
+        Name = "Marry",
+        DateOfBirth = DateTimeOffset.UtcNow.AddYears(-50),
         Addresses = Enumerable.Range(0, 10)
                         .Select(i => new Address($"Type {i}",
                                                  $"Country {i}",
@@ -21,12 +21,14 @@ public readonly partial record struct Person(
                                                  $"Street {i}",
                                                  i))
                         .ToList()
-        //.ToImmutableArray()
     };
 
-    #endregion //  public static Person Default { get;  } = ...
+    #endregion //  public static Fellow Default { get;  } = ...
+
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public DateTimeOffset DateOfBirth { get; set; }
 
     [OrderedEquality]
     public List<Address> Addresses { get; init; }
-    //public ImmutableArray<Address> Addresses { get; init; }  // Not supported by AutoMapper
 }

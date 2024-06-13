@@ -66,6 +66,6 @@ public class GuardsTests
         var age = Age.From(75);
         Assert.Equal(75, (int)age);
         Assert.True(age == 75);
-        Assert.True(age.Equals( 75));
+        Assert.True(age.Equals(75));
     }
 }

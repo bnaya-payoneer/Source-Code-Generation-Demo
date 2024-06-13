@@ -2,7 +2,7 @@
 
 namespace Bnaya.Samples;
 
-[ValueObject<int>(Conversions.SystemTextJson | Conversions.TypeConverter, 
+[ValueObject<int>(Conversions.SystemTextJson | Conversions.TypeConverter,
                 comparison: ComparisonGeneration.UseUnderlying)]
 [Instance("Unspecified", -1)]
 public readonly partial record struct Age

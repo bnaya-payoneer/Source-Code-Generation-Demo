@@ -1,5 +1,4 @@
-﻿using Bnaya.Samples;
-using Vogen;
+﻿using Vogen;
 
 namespace Bnaya.Samples;
 

@@ -4,15 +4,15 @@ using BenchmarkDotNet.Configs;
 namespace Bnaya.Samples;
 
 public class BenchmarkConfig : ManualConfig
+{
+    public BenchmarkConfig()
     {
-        public BenchmarkConfig()
-        {
-            //AddColumn(
-            //    StatisticColumn.P95);
+        //AddColumn(
+        //    StatisticColumn.P95);
 
-            HideColumns(
-                StatisticColumn.StdDev,
-                BaselineRatioColumn.RatioStdDev,
-                StatisticColumn.Error);
-        }
+        HideColumns(
+            StatisticColumn.StdDev,
+            BaselineRatioColumn.RatioStdDev,
+            StatisticColumn.Error);
     }
+}

@@ -1,5 +1,4 @@
 ﻿using Generator.Equals;
-using System.Collections.Immutable;
 
 namespace Bnaya.Samples;
 
