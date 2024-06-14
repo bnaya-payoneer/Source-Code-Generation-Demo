@@ -3,12 +3,14 @@ using System.Text.Json;
 
 namespace Bnaya.Samples;
 
-[AllCategoriesFilter("string", "Fellow")]
-//[AllCategoriesFilter("string", "Person")]
-public class Benchmark : BenchmarkBase
+//[AllCategoriesFilter("string", "Fellow")]
+[AllCategoriesFilter("string", "Person")]
+public class BenchmarkLowLevel : BenchmarkBase
 {
     private static readonly Person _person = Person.Default;
     private static readonly Fellow _fellow = Fellow.Default;
+    private MemoryStream _memoryStream;
+    private Utf8JsonWriter _jsonWriter;
 
     #region Fellow
 

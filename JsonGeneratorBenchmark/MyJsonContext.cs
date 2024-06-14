@@ -2,5 +2,5 @@
 
 namespace Bnaya.Samples;
 
-[JsonSerializable(typeof(Person1[]))]
+[JsonSerializable(typeof(Fellow[]))]
 internal partial class MyJsonContext : JsonSerializerContext { }

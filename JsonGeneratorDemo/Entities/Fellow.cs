@@ -30,5 +30,5 @@ public partial class Fellow
     public DateTimeOffset DateOfBirth { get; set; }
 
     [OrderedEquality]
-    public List<Address> Addresses { get; init; }
+    public List<Address> Addresses { get; set; }
 }

@@ -12,16 +12,20 @@ internal static class DataGenerator
         "English", "Holder", "Beech", "Simon", "Briggs", "Terry", "Horton", "Leblanc", "Rodriguez", "Atkins"
     };
 
-    public static Person1 GetPerson() => GetPeople(1)[0];
+    public static Fellow GetPerson() => GetPeople(1)[0];
 
-    public static Person1[] GetPeople(int num)
+    public static Fellow[] GetPeople(int num)
     {
         Random rng = new();
 
-        return Enumerable.Range(1, num).Select(indexer => new Person1()
+        return Enumerable.Range(1, num).Select(indexer => new Fellow()
         {
             FirstName = FirstNames[rng.Next(FirstNames.Length)],
-            LastName = LastNames[rng.Next(LastNames.Length)]
+            LastName = LastNames[rng.Next(LastNames.Length)],
+            Locations = [ 
+                new Location { Country = "USA", City = "NY"},
+                new Location { Country = "GB", City = "London"}
+                ] 
         }).ToArray();
     }
 }

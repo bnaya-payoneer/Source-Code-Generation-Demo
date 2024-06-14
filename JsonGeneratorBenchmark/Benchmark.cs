@@ -3,12 +3,14 @@ using BenchmarkDotNet.Attributes;
 
 namespace Bnaya.Samples;
 
+[AllCategoriesFilter("string")]
+
 public class Benchmark: BenchmarkBase
 {
     private MemoryStream _memoryStream;
     private Utf8JsonWriter _jsonWriter;
 
-    private Person1 _person;
+    private Fellow _person;
 
     [GlobalSetup]
     public void Setup()
@@ -27,22 +29,40 @@ public class Benchmark: BenchmarkBase
     }
 
     [Benchmark(Baseline = true)]
+    [BenchmarkCategory("stream")]
     public void Default()
     {
         JsonSerializer.Serialize(_jsonWriter, _person);
         _memoryStream.Position = 0;
         _jsonWriter.Reset();
-        var person = JsonSerializer.Deserialize<Person1>(_memoryStream);
+        var person = JsonSerializer.Deserialize<Fellow>(_memoryStream);
         _memoryStream.SetLength(0);
     }
 
     [Benchmark]
+    [BenchmarkCategory("stream")]
     public void SrcGenSerializer()
     {
-        JsonSerializer.Serialize(_jsonWriter, _person, MyJsonContext.Default.Person1);
+        JsonSerializer.Serialize(_jsonWriter, _person, MyJsonContext.Default.Fellow);
         _memoryStream.Position = 0;
         _jsonWriter.Reset();
-        var person = JsonSerializer.Deserialize<Person1>(_memoryStream, MyJsonContext.Default.Person1);
+        var person = JsonSerializer.Deserialize<Fellow>(_memoryStream, MyJsonContext.Default.Fellow);
         _memoryStream.SetLength(0);
+    }
+
+    [Benchmark(Baseline = true)]
+    [BenchmarkCategory("string")]
+    public void DefaultString()
+    {
+        string json = JsonSerializer.Serialize(_person);
+        var person = JsonSerializer.Deserialize<Fellow>(json);
+    }
+
+    [Benchmark]
+    [BenchmarkCategory("string")]
+    public void SrcGenSerializerString()
+    {
+        string json = JsonSerializer.Serialize(_person, MyJsonContext.Default.Fellow);
+        var person = JsonSerializer.Deserialize<Fellow>(json, MyJsonContext.Default.Fellow);
     }
 }
