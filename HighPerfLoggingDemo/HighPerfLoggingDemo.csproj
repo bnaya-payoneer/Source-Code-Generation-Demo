@@ -6,6 +6,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="Cocona" Version="2.2.0" />
+		<PackageReference Include="FakeItEasy" Version="8.2.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Telemetry.Abstractions" Version="8.4.0" />
 	</ItemGroup>

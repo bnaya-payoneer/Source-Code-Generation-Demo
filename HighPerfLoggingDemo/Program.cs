@@ -1,9 +1,11 @@
 ﻿using BenchmarkDotNet.Running;
 using Bnaya.Samples;
 using Cocona;
+using Microsoft.Extensions.DependencyInjection;
 
-var builder = CoconaApp.CreateBuilder();
-var services = builder.Services;
+//var builder = CoconaApp.CreateBuilder();
+//var services = builder.Services;
+
 
 Console.WriteLine("Start!");
 

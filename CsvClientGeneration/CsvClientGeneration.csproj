@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="currency.csv" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="currency.csv">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CSVParserGenerator" Version="1.9.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<ProjectReference Include="..\Defaults\Defaults.csproj" />
+	</ItemGroup>
+
+</Project>
