@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="8.0.6" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Defaults\Defaults.csproj" />
+		<ProjectReference Include="..\Mediator\MediatorGeneration.WebApp\MediatorGeneration.WebApp.csproj" />
+		<ProjectReference Include="..\MediatR\MediatRDefault.WebApp\MediatRDefault.WebApp.csproj" />
+	</ItemGroup>
+
+</Project>

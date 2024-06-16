@@ -5,6 +5,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Bnaya.Samples;
 
+[IterationCount(6)]
+[WarmupCount(1)]
 public class Benchmark : BenchmarkBase
 {
     private readonly ILogger _logger = A.Fake<ILogger>();
